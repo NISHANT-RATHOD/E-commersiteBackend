@@ -1,0 +1,35 @@
+import express from "express";
+import mongoose from "mongoose";
+import cors from 'cors';
+import UserRouter from "./routers/user.router";
+import AuthRouter from "./routers/auth.router";
+import ProductRouter from "./routers/product.router";
+import CartRouter from "./routers/cart.router"
+import OrderRouter from "./routers/order.router"
+import dotenv from "dotenv";
+
+dotenv.config();
+const app  = express();
+app.use(express.json());
+app.use(cors());
+app.get("/test",(req,res)=>{
+   res.json('test success');
+})
+
+app.use("/shop/user",UserRouter);
+app.use("/shop/auth",AuthRouter);
+app.use("/shop/product",ProductRouter);
+app.use("/shop/cart",CartRouter);
+app.use("/shop/order",OrderRouter);
+
+  
+mongoose.connect("mongodb://localhost:27017/Shop")
+  .then(() =>{
+      console.log("mongodb started.");
+  }).catch(()=>{
+      console.log("mongodb connection failed.");
+  })
+
+app.listen(5000,()=>{
+    console.log("backend Server is Running");
+})
