@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js", 
+  "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node index.js"
   },
@@ -23,4 +23,5 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.7"
   }
+  
 }
