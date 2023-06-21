@@ -22,14 +22,15 @@ app.use("/shop/product",ProductRouter);
 app.use("/shop/cart",CartRouter);
 app.use("/shop/order",OrderRouter);
 
-  
-mongoose.connect("mongodb://localhost:27017/Shop")
+const DB = process.env.DATABASE  
+const PORT = process.env.PORT || 5000
+mongoose.connect(DB)
   .then(() =>{
       console.log("mongodb started.");
   }).catch(()=>{
       console.log("mongodb connection failed.");
   })
 
-app.listen(5000,()=>{
+app.listen(PORT,()=>{
     console.log("backend Server is Running");
 })
