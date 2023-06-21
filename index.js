@@ -10,6 +10,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const app  = express();
+const DB = process.env.DATABASE  
+const PORT = process.env.PORT || 5000
 app.use(express.json());
 app.use(cors());
 app.get("/test",(req,res)=>{
@@ -22,8 +24,7 @@ app.use("/shop/product",ProductRouter);
 app.use("/shop/cart",CartRouter);
 app.use("/shop/order",OrderRouter);
 
-const DB = process.env.DATABASE  
-const PORT = process.env.PORT || 5000
+
 mongoose.connect(DB)
   .then(() =>{
       console.log("mongodb started.");
