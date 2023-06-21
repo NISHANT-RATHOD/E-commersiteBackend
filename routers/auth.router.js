@@ -8,4 +8,5 @@ router.post('/checking',(req,res)=>{
 
 router.post('/register',Register);
 router.post("/login",Login);
+
 export default router;
