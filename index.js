@@ -1,11 +1,11 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from 'cors';
-import UserRouter from "./routers/user.router";
-import AuthRouter from "./routers/auth.router";
-import ProductRouter from "./routers/product.router";
-import CartRouter from "./routers/cart.router"
-import OrderRouter from "./routers/order.router"
+import UserRouter from "../routers/user.router";
+import AuthRouter from "../routers/auth.router";
+import ProductRouter from "../routers/product.router";
+import CartRouter from "../routers/cart.router"
+import OrderRouter from "../routers/order.router"
 import dotenv from "dotenv";
 
 dotenv.config();
