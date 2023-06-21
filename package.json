@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "data-type":"module",
   "scripts": {
     "start": "nodemon --exec babel-node index.js"
   },

@@ -1,4 +1,5 @@
- import Cart from "../models/Cart.model"
+import Cart from "../models/Cart.model"
+
 // CREATE
 
 export const CreateCart = async(req,res)=>{
