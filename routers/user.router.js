@@ -1,6 +1,6 @@
-import express from 'express'
-import { AllUser, DeleteUser, FindUser, UpdateUser, UserStat } from '../controller/User.controller';
-import { VerifyTokenAndAdmin, VerifyTokenAndAuthorization } from '../controller/VerifyToken.controller';
+const express = require ('express');
+const { AllUser, DeleteUser, FindUser, UpdateUser, UserStat } = require('../controller/User.controller');
+const { VerifyTokenAndAdmin, VerifyTokenAndAuthorization } = require('../controller/VerifyToken.controller');
 const router = express.Router();
 
 
@@ -10,4 +10,4 @@ router.get('/find/:id',VerifyTokenAndAdmin,FindUser);
 router.get('/all_users',VerifyTokenAndAdmin,AllUser);
 router.get('/stat',VerifyTokenAndAdmin,UserStat);
 
-export default router;
+module.exports = router;

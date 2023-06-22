@@ -1,28 +1,20 @@
 {
-  "name": "backend",
+  "name": "new-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "data-type":"module",
   "scripts": {
-    "start": "nodemon --exec babel-node index.js"
+    "start": "nodemon index.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.17.5",
-    "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.16.11",
-    "nodemon": "^2.0.15"
-  },
   "dependencies": {
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
-    "dotenv": "^16.0.2",
-    "express": "^4.17.3",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.7"
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.3.1",
+    "nodemon": "^2.0.22"
   }
-  
 }

@@ -1,6 +1,7 @@
-import express from 'express';
-import { AddProduct, AllProduct, DeleteProduct, FindProduct, UpdateProduct } from '../controller/Product.controller';
-import { VerifyTokenAndAdmin } from '../controller/VerifyToken.controller';
+const express = require ("express");
+const  {VerifyTokenAndAdmin}= require('../controller/VerifyToken.controller');
+const  {AllProduct,AddProduct,UpdateProduct,DeleteProduct,FindProduct} = require('../controller/Product.controller');
+
 
 const router = express.Router();
 
@@ -11,5 +12,4 @@ router.delete('/delete/:id',VerifyTokenAndAdmin,DeleteProduct);
 router.get('/find/:id',FindProduct); 
 router.get('/all_product',AllProduct);
 
-
-export default router;
+module.exports = router; 

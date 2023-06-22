@@ -1,10 +1,10 @@
-import User from '../models/User.model'
-import CryptoJS from 'crypto-js';
-import  Jwt  from 'jsonwebtoken';
+const User = require ('../models/User.model')
+const CryptoJS = require ('crypto-js');
+const  Jwt  = require ('jsonwebtoken');
 
 //REGISTER
 
-export const Register = async(req,res)=>{
+const Register = async(req,res)=>{
 const newUser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -23,7 +23,7 @@ const newUser = new User({
 
 //LOGIN
 
-export const Login = async(req,res)=>{
+const Login = async(req,res)=>{
     try{
         const user = await User.findOne({username:req.body.username})
         !user && res.status(401).json("Wrong Credentials")
@@ -46,3 +46,4 @@ export const Login = async(req,res)=>{
     }
 }
 
+module.exports = { Login, Register }

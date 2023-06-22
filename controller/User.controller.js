@@ -1,8 +1,8 @@
-import User from "../models/User.model"
-import CryptoJS from "crypto-js";
+const User = require("../models/User.model");
+const CryptoJS = require("crypto-js");
 
 // UPDATE
-export const UpdateUser = async(req,res)=>{
+const UpdateUser = async(req,res)=>{
    if(req.body.password){
     req.body.password = CryptoJS.AES.encrypt(
         req.body.password,
@@ -22,7 +22,7 @@ export const UpdateUser = async(req,res)=>{
 }
 
 // DELETE
-export const DeleteUser = async(req,res)=>{
+const DeleteUser = async(req,res)=>{
     try{
       await User.findByIdAndDelete(req.params.id)
       res.status(200).json("User has been Deleted.")
@@ -32,7 +32,7 @@ export const DeleteUser = async(req,res)=>{
 }
  
 // FIND
-export const FindUser = async(req,res)=>{
+const FindUser = async(req,res)=>{
     try{
       const user = await User.findById(req.params.id);
       const { password ,...others } = user._doc
@@ -43,7 +43,7 @@ export const FindUser = async(req,res)=>{
 }
 
 // ALL USERS
-export const AllUser = async(req,res) =>{
+const AllUser = async(req,res) =>{
     const query = req.query.new 
     try{
         const user = query ? await User.find().sort({_id:-1}).limit(1) : await User.find();
@@ -54,7 +54,7 @@ export const AllUser = async(req,res) =>{
 }
 
 // USERS STAT 
-export const UserStat = async(req,res)=>{
+const UserStat = async(req,res)=>{
     const date = new Date();
     const lasYear = new Date(date.setFullYear(date.getFullYear() -1));
 
@@ -78,3 +78,5 @@ export const UserStat = async(req,res)=>{
         res.status(500).json(err);
     }
 }
+
+module.exports = {UpdateUser,DeleteUser,FindUser,AllUser,UserStat}

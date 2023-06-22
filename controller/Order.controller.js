@@ -1,8 +1,8 @@
-import Order from "../models/Order.model"
+const Order = require  ("../models/Order.model");
 
 // CREATE ORDER
 
-export const CreateOrder = async(req,res)=>{
+ const CreateOrder = async(req,res)=>{
     const newOrder = new Order(req.body)
     try{
     const order = await newOrder.save();
@@ -14,7 +14,7 @@ export const CreateOrder = async(req,res)=>{
 
 // UPDATE ORDER 
 
-export const UpdateOrder = async(req,res) =>{
+ const UpdateOrder = async(req,res) =>{
    try{
     const updatedorder = await Order.findByIdAndUpdate(
         req.paramas.id,
@@ -31,7 +31,7 @@ export const UpdateOrder = async(req,res) =>{
 
 // DELETE ORDER 
 
-export const DeleteOrder = async(req,res) =>{
+ const DeleteOrder = async(req,res) =>{
     try{
       await Order.findByIdAndDelete(req.params.id)
       res.status(500).json("Your Order has been Delete.");
@@ -42,7 +42,7 @@ export const DeleteOrder = async(req,res) =>{
 
 // GET USERS ORDER 
 
-export const GetUserOrder = async(req,res) =>{
+ const GetUserOrder = async(req,res) =>{
     try{
     const UserOrder = await Order.find(req.params.id);
     res.status(200).json(UserOrder);
@@ -53,7 +53,7 @@ export const GetUserOrder = async(req,res) =>{
 
 // ALL ORDER 
 
-export const AllOrder = async(req,res) =>{
+ const AllOrder = async(req,res) =>{
     try{
         const allorder = await Order.find();
         res.status(200).json(allorder);
@@ -64,7 +64,7 @@ export const AllOrder = async(req,res) =>{
 
 // GET MONTHLY INCOME
 
-export const MonthlyIncome = async(req,res) =>{
+ const MonthlyIncome = async(req,res) =>{
     const date = new Date();
     const lastMonth = new Date(date.setMonth(date.getMonth()-1));
     const prevMonth = new Date(date.setMonth(lastMonth.getMonth()-1));
@@ -91,3 +91,5 @@ export const MonthlyIncome = async(req,res) =>{
         res.status(500).json(err);
     }
 }
+
+module.exports = { AllOrder, CreateOrder, DeleteOrder, MonthlyIncome, UpdateOrder }

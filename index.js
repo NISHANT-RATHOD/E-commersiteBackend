@@ -1,12 +1,12 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from 'cors';
-import UserRouter from "./routers/user.router";
-import AuthRouter from "./routers/auth.router";
-import ProductRouter from "./routers/product.router";
-import CartRouter from "./routers/cart.router"
-import OrderRouter from "./routers/order.router"
-import dotenv from "dotenv";
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require('cors');
+const UserRouter = require ("./routers/user.router");
+const AuthRouter = require ("./routers/auth.router");
+const ProductRouter = require ("./routers/product.router");
+const CartRouter = require ("./routers/cart.router");
+const OrderRouter = require ("./routers/order.router");
+const dotenv = require("dotenv");
 
 dotenv.config();
 const app  = express();
