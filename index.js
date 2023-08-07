@@ -10,7 +10,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const app  = express();
-const DB = process.env.DATABASE
+// const DB = process.env.DATABASE
 const PORT  = process.env.PORT || 5000
 app.use(express.json());
 app.use(cors());
@@ -25,7 +25,7 @@ app.use("/shop/cart",CartRouter);
 app.use("/shop/order",OrderRouter);
 
 
-mongoose.connect(DB)
+mongoose.connect("mongodb+srv://Nishant-Rathod:Light299792458$peed@cluster0.rqxe8ig.mongodb.net/Shop?retryWrites=true&w=majority")
   .then(() =>{
       console.log("mongodb started.");
   }).catch(()=>{
