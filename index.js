@@ -11,7 +11,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app  = express();
 const DB = process.env.DATABASE
-const PORT  = process.env.PORT || 5000
+const PORT  = process.env.PORT || 9000
 app.use(express.json());
 app.use(cors());
 app.get("/test",(req,res)=>{
