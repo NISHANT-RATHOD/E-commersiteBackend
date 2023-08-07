@@ -25,7 +25,7 @@ const schema = new Schema({
         type:Array,
     },
     price:{
-        type:String,
+        type:Array,
         required:true
     },
     inStock:{
